@@ -1,0 +1,23 @@
+.main {
+    min-width: 0;
+}
+
+.headingRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.artistStrip {
+    display: flex;
+    gap: 0.875rem;
+    margin: 1.125rem -1rem 1.5rem;
+    padding: 0.25rem 1rem 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.artistStrip::-webkit-scrollbar {
+    display: none;
+}

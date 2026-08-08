@@ -1,0 +1,52 @@
+.toggle {
+    position: relative;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: none;
+    padding: 0;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    color: var(--ink);
+    cursor: pointer;
+    transition:
+        box-shadow 100ms ease,
+        transform 100ms ease,
+        background-color 120ms ease;
+}
+
+.toggle::before {
+    position: absolute;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 2px solid currentcolor;
+    border-radius: 50%;
+    content: '';
+}
+
+.toggle svg {
+    position: relative;
+    z-index: 1;
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2.5;
+}
+
+.toggle:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 58%, transparent);
+    outline-offset: 4px;
+}
+
+.toggle:active {
+    box-shadow: 1px 1px 0 var(--ink);
+    transform: translate(2px, 2px);
+}
+
+@media (hover: hover) {
+    .toggle:hover {
+        background: var(--accent);
+    }
+}

@@ -1,0 +1,993 @@
+openapi: 3.0.3
+info:
+  title: Naevis Bot API
+  version: 1.0.0
+tags:
+  - name: Auth
+    description: Browser session authentication
+  - name: Music
+    description: Music catalog and ratings
+paths:
+  /api/v1/auth/session:
+    get:
+      tags:
+        - Auth
+      summary: Read the current browser session
+      operationId: getAuthSession
+      responses:
+        '200':
+          description: Current guest or authenticated session state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthSessionResponse'
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Exchange a Telegram bot login token for a browser session
+      operationId: loginWithToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginTokenRequest'
+      responses:
+        '204':
+          description: The browser session is authenticated
+        '401':
+          description: The token is invalid, expired, or already used
+  /logout:
+    post:
+      tags:
+        - Auth
+      summary: End the current browser session
+      operationId: logoutCurrentSession
+      responses:
+        '204':
+          description: The current session was invalidated
+  /api/v1/music/releases:
+    get:
+      tags:
+        - Music
+      summary: List releases for one performing entity
+      operationId: listMusicReleases
+      parameters:
+        - name: performingEntityId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Matching active releases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicReleaseSummary'
+        '400':
+          description: A performing entity ID is required
+    post:
+      tags:
+        - Music
+      summary: Upload a new release from an edited form draft
+      description: Stores the submitted values as authoritative and retains optional Spotify references without fetching Spotify again.
+      operationId: uploadMusicRelease
+      security:
+        - sessionCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MusicReleaseDraft'
+      responses:
+        '201':
+          description: Release created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicReleaseUploadResponse'
+        '400':
+          description: Invalid release draft
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicReleaseValidationError'
+        '401':
+          description: Authentication is required or the browser session has expired
+        '409':
+          description: The Spotify release has already been uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpotifyReleaseExistsError'
+  /api/v1/music/artists:
+    get:
+      tags:
+        - Music
+      summary: List artists with at least one active catalog release
+      operationId: listMusicArtists
+      responses:
+        '200':
+          description: Performing entities represented in the active catalog
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicArtistSummary'
+  /api/v1/music/releases/spotify/preview:
+    post:
+      tags:
+        - Music
+      summary: Fetch Spotify album information to prefill the release form
+      description: Returns an unsaved editable draft. This operation never creates or updates a catalog release.
+      operationId: previewSpotifyRelease
+      security:
+        - sessionCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpotifyReleasePreviewRequest'
+      responses:
+        '200':
+          description: Editable release draft populated from Spotify
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicReleaseDraft'
+        '400':
+          description: Invalid Spotify album URL
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpotifyPreviewError'
+        '401':
+          description: Authentication is required or the browser session has expired
+        '502':
+          description: Spotify could not be reached or returned unusable data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpotifyPreviewError'
+  /api/v1/music/releases/{releaseId}:
+    get:
+      tags:
+        - Music
+      summary: Read an active release with its tracks and associations
+      operationId: getMusicRelease
+      parameters:
+        - $ref: '#/components/parameters/ReleaseId'
+      responses:
+        '200':
+          description: Release detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicReleaseDetail'
+        '404':
+          description: Active release not found
+  /api/v1/music/releases/{releaseId}/rating:
+    get:
+      tags:
+        - Music
+      summary: Read the current user's rating and the release aggregate
+      operationId: getMyMusicReleaseRating
+      parameters:
+        - $ref: '#/components/parameters/ReleaseId'
+      responses:
+        '200':
+          description: Current and aggregate release rating state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicReleaseRatingOverview'
+    put:
+      tags:
+        - Music
+      summary: Set the current user's release rating
+      operationId: setMyMusicReleaseRating
+      parameters:
+        - $ref: '#/components/parameters/ReleaseId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MusicReleaseRatingValue'
+      responses:
+        '200':
+          description: Whether current state changed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingMutationResponse'
+        '400':
+          description: Invalid rating state
+        '404':
+          description: Active user or release not found
+    delete:
+      tags:
+        - Music
+      summary: Clear the current user's release rating
+      operationId: clearMyMusicReleaseRating
+      parameters:
+        - $ref: '#/components/parameters/ReleaseId'
+      responses:
+        '200':
+          description: Whether current state changed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingMutationResponse'
+        '404':
+          description: Active user or release not found
+  /api/v1/music/releases/{releaseId}/voters:
+    get:
+      tags:
+        - Music
+      summary: List current release voters
+      operationId: listMusicReleaseVoters
+      parameters:
+        - $ref: '#/components/parameters/ReleaseId'
+      responses:
+        '200':
+          description: Current voter breakdown with deleted users anonymized
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicVoterRating'
+  /api/v1/music/tracks/{trackId}/rating:
+    get:
+      tags:
+        - Music
+      summary: Read the current user's rating and the track aggregate
+      operationId: getMyMusicTrackRating
+      parameters:
+        - $ref: '#/components/parameters/TrackId'
+      responses:
+        '200':
+          description: Current and aggregate track rating state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MusicTrackRatingOverview'
+    put:
+      tags:
+        - Music
+      summary: Set the current user's track rating
+      operationId: setMyMusicTrackRating
+      parameters:
+        - $ref: '#/components/parameters/TrackId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MusicTrackRatingValue'
+      responses:
+        '200':
+          description: Whether current state changed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingMutationResponse'
+        '400':
+          description: Invalid rating state
+        '404':
+          description: Active user, track, or parent release not found
+    delete:
+      tags:
+        - Music
+      summary: Clear the current user's track rating
+      operationId: clearMyMusicTrackRating
+      parameters:
+        - $ref: '#/components/parameters/TrackId'
+      responses:
+        '200':
+          description: Whether current state changed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingMutationResponse'
+        '404':
+          description: Active user, track, or parent release not found
+  /api/v1/music/tracks/{trackId}/voters:
+    get:
+      tags:
+        - Music
+      summary: List current track voters
+      operationId: listMusicTrackVoters
+      parameters:
+        - $ref: '#/components/parameters/TrackId'
+      responses:
+        '200':
+          description: Current voter breakdown with deleted users anonymized
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicVoterRating'
+  /api/v1/music/users/me/ratings:
+    get:
+      tags:
+        - Music
+      summary: List all current ratings for the current user
+      operationId: listMyMusicRatings
+      responses:
+        '200':
+          description: Active rated targets ordered by update time
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicUserRating'
+  /api/v1/music/rated/releases:
+    get:
+      tags:
+        - Music
+      summary: List releases whose aggregate is weak seven or higher
+      operationId: listHighlyRatedMusicReleases
+      responses:
+        '200':
+          description: Releases at or above the semantic 6.50 boundary
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicRatedTarget'
+  /api/v1/music/rated/tracks:
+    get:
+      tags:
+        - Music
+      summary: List highly rated tracks by aggregate or individual-vote criterion
+      operationId: listHighlyRatedMusicTracks
+      parameters:
+        - name: criterion
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - average
+              - any
+      responses:
+        '200':
+          description: Tracks matching the selected seven-plus criterion
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MusicRatedTarget'
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: SESSION
+  parameters:
+    ReleaseId:
+      name: releaseId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+    TrackId:
+      name: trackId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+  schemas:
+    LoginTokenRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - token
+      properties:
+        token:
+          type: string
+          minLength: 20
+          maxLength: 128
+    AuthSessionResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - authenticated
+      properties:
+        authenticated:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/AuthenticatedUser'
+          x-field-extra-annotation: '@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)'
+    AuthenticatedUser:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        avatarUrl:
+          type: string
+          format: uri
+          nullable: true
+    FeedResponse:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeedItem'
+    FeedItem:
+      type: object
+      required:
+        - id
+        - user
+        - album
+        - rating
+        - ratedAt
+      properties:
+        id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        album:
+          $ref: '#/components/schemas/AlbumSummary'
+        rating:
+          type: number
+          minimum: 0
+          maximum: 10
+        ratedAt:
+          type: string
+          format: date-time
+    UserSummary:
+      type: object
+      required:
+        - id
+        - displayName
+        - handle
+        - initials
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        handle:
+          type: string
+        initials:
+          type: string
+    AlbumSummary:
+      type: object
+      required:
+        - id
+        - title
+        - artist
+        - releaseYear
+        - artwork
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        artist:
+          type: string
+        releaseYear:
+          type: integer
+        artwork:
+          type: string
+          enum:
+            - ripple
+            - orbit
+            - bloom
+    SpotifyReleasePreviewRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          format: uri
+          minLength: 1
+    SpotifyReference:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - url
+      properties:
+        id:
+          type: string
+          pattern: '^[A-Za-z0-9]{22}$'
+        url:
+          type: string
+          format: uri
+    MusicReleaseDraftImage:
+      type: object
+      additionalProperties: false
+      required:
+        - source
+        - uri
+      properties:
+        source:
+          type: string
+          enum:
+            - spotify
+            - custom
+            - local
+        uri:
+          type: string
+          minLength: 1
+        width:
+          type: integer
+          minimum: 1
+          nullable: true
+        height:
+          type: integer
+          minimum: 1
+          nullable: true
+    MusicReleaseDraftTrack:
+      type: object
+      additionalProperties: false
+      required:
+        - title
+        - explicit
+        - artistCredits
+      properties:
+        title:
+          type: string
+          minLength: 1
+        discNumber:
+          type: integer
+          minimum: 1
+          nullable: true
+        trackNumber:
+          type: integer
+          minimum: 1
+          nullable: true
+        durationMs:
+          type: integer
+          format: int64
+          minimum: 0
+          nullable: true
+        explicit:
+          type: boolean
+        artistCredits:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+        spotifyReference:
+          allOf:
+            - $ref: '#/components/schemas/SpotifyReference'
+          nullable: true
+    MusicReleaseDraft:
+      type: object
+      additionalProperties: false
+      required:
+        - name
+        - releaseType
+        - artistCredits
+        - tracks
+      properties:
+        name:
+          type: string
+          minLength: 1
+        releaseType:
+          type: string
+          enum:
+            - album
+            - ep
+            - single
+            - compilation
+            - other
+        releaseDate:
+          type: string
+          format: date
+          nullable: true
+        artistCredits:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+        image:
+          allOf:
+            - $ref: '#/components/schemas/MusicReleaseDraftImage'
+          nullable: true
+        tracks:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/MusicReleaseDraftTrack'
+        spotifyReference:
+          allOf:
+            - $ref: '#/components/schemas/SpotifyReference'
+          nullable: true
+    MusicReleaseUploadResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - releaseId
+      properties:
+        releaseId:
+          type: integer
+          format: int64
+          minimum: 1
+    UploadFieldError:
+      type: object
+      additionalProperties: false
+      required:
+        - path
+        - code
+        - message
+      properties:
+        path:
+          type: string
+        code:
+          type: string
+        message:
+          type: string
+    MusicReleaseValidationError:
+      type: object
+      additionalProperties: false
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UploadFieldError'
+    SpotifyReleaseExistsError:
+      type: object
+      additionalProperties: false
+      required:
+        - code
+        - releaseId
+      properties:
+        code:
+          type: string
+          enum:
+            - spotify_release_exists
+        releaseId:
+          type: integer
+          format: int64
+          minimum: 1
+    SpotifyPreviewError:
+      type: object
+      additionalProperties: false
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          enum:
+            - invalid_spotify_url
+            - spotify_unavailable
+        message:
+          type: string
+    MusicReleaseSummary:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - releaseType
+        - artistCredits
+        - selectedCover
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        releaseType:
+          type: string
+          enum:
+            - album
+            - ep
+            - single
+            - compilation
+            - other
+        releaseDate:
+          type: string
+          format: date
+          nullable: true
+        artistCredits:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+        selectedCover:
+          allOf:
+            - $ref: '#/components/schemas/MusicImage'
+          nullable: true
+    MusicReleaseDetail:
+      type: object
+      additionalProperties: false
+      required:
+        - release
+        - images
+        - tracks
+        - performingEntities
+      properties:
+        release:
+          $ref: '#/components/schemas/MusicReleaseSummary'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/MusicImage'
+        tracks:
+          type: array
+          items:
+            $ref: '#/components/schemas/MusicTrack'
+        performingEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/MusicArtistSummary'
+    MusicImage:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - source
+        - uri
+        - preferred
+      properties:
+        id:
+          type: integer
+          format: int64
+        source:
+          type: string
+          enum:
+            - spotify
+            - custom
+            - local
+        uri:
+          type: string
+        width:
+          type: integer
+          nullable: true
+        height:
+          type: integer
+          nullable: true
+        preferred:
+          type: boolean
+    MusicTrack:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - title
+        - explicit
+        - artistCredits
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        discNumber:
+          type: integer
+          nullable: true
+        trackNumber:
+          type: integer
+          nullable: true
+        durationMs:
+          type: integer
+          format: int64
+          nullable: true
+        explicit:
+          type: boolean
+        artistCredits:
+          type: array
+          items:
+            type: string
+    MusicArtistSummary:
+      type: object
+      additionalProperties: false
+      required:
+        - kind
+        - id
+        - name
+      properties:
+        kind:
+          type: string
+          enum:
+            - group
+            - subunit
+            - solo
+            - project_group
+            - collaboration
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+    MusicReleaseRatingValue:
+      type: object
+      additionalProperties: false
+      required:
+        - score
+      properties:
+        score:
+          type: integer
+          minimum: 0
+          maximum: 10
+        strength:
+          type: string
+          nullable: true
+          enum:
+            - weak
+            - decent
+            - strong
+    MusicTrackRatingValue:
+      type: object
+      additionalProperties: false
+      required:
+        - score
+      properties:
+        score:
+          type: integer
+          minimum: 1
+          maximum: 10
+    MusicRatingAggregate:
+      type: object
+      additionalProperties: false
+      required:
+        - voterCount
+        - average
+      properties:
+        voterCount:
+          type: integer
+          format: int64
+        average:
+          type: number
+    MusicReleaseRatingOverview:
+      type: object
+      additionalProperties: false
+      properties:
+        current:
+          allOf:
+            - $ref: '#/components/schemas/MusicReleaseRatingValue'
+          nullable: true
+        aggregate:
+          allOf:
+            - $ref: '#/components/schemas/MusicRatingAggregate'
+          nullable: true
+        nearestAggregateState:
+          allOf:
+            - $ref: '#/components/schemas/MusicReleaseRatingValue'
+          nullable: true
+    MusicTrackRatingOverview:
+      type: object
+      additionalProperties: false
+      properties:
+        current:
+          allOf:
+            - $ref: '#/components/schemas/MusicTrackRatingValue'
+          nullable: true
+        aggregate:
+          allOf:
+            - $ref: '#/components/schemas/MusicRatingAggregate'
+          nullable: true
+    RatingMutationResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - changed
+      properties:
+        changed:
+          type: boolean
+    MusicUserRating:
+      type: object
+      additionalProperties: false
+      required:
+        - targetType
+        - targetId
+        - targetName
+        - score
+        - updatedAt
+      properties:
+        targetType:
+          type: string
+          enum:
+            - release
+            - track
+        targetId:
+          type: integer
+          format: int64
+        targetName:
+          type: string
+        score:
+          type: integer
+        strength:
+          type: string
+          nullable: true
+          enum:
+            - weak
+            - decent
+            - strong
+        updatedAt:
+          type: string
+          format: date-time
+    MusicRatedTarget:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - voterCount
+        - average
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        voterCount:
+          type: integer
+          format: int64
+        average:
+          type: number
+    MusicVoterRating:
+      type: object
+      additionalProperties: false
+      required:
+        - displayName
+        - score
+        - updatedAt
+      properties:
+        userId:
+          type: integer
+          format: int64
+          nullable: true
+        displayName:
+          type: string
+        score:
+          type: integer
+        strength:
+          type: string
+          nullable: true
+          enum:
+            - weak
+            - decent
+            - strong
+        updatedAt:
+          type: string
+          format: date-time

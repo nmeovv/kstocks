@@ -1,0 +1,111 @@
+.status {
+    color: var(--subtle-foreground);
+}
+
+.identity {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.375rem 0.25rem 0.5rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--sky);
+    box-shadow: var(--shadow-sm);
+}
+
+.name {
+    display: none;
+    max-width: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.identity [data-slot='button'] {
+    width: 2rem;
+    height: 2rem;
+}
+
+.loginPrompt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--sky);
+    box-shadow: var(--shadow-sm);
+}
+
+.promptActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.loginPopup {
+    max-width: 32rem;
+}
+
+.loginMark {
+    display: grid;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    margin-bottom: 0.625rem;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: var(--shadow-sm);
+    transform: rotate(-4deg);
+}
+
+.loginMark svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.tokenInput {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0.875rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    color: var(--ink);
+    font-family: var(--font-meta-family);
+    font-size: 1rem;
+}
+
+.tokenInput:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
+    outline-offset: 3px;
+}
+
+.loginError {
+    margin-top: 0.375rem;
+    color: var(--destructive);
+    font-size: var(--font-size-3);
+}
+
+@media (min-width: 641px) {
+    .name {
+        display: block;
+    }
+
+    .loginPrompt {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

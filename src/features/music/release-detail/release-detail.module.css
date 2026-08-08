@@ -1,0 +1,205 @@
+.desktopMain {
+    max-width: 64rem;
+    margin-inline: auto;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+    color: inherit;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2rem;
+}
+
+.backLink svg {
+    width: 1rem;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.coverFrame {
+    position: relative;
+    width: min(100%, 23rem);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--muted);
+    box-shadow: var(--shadow);
+    transform: rotate(-1deg);
+}
+
+.coverFrame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coverPlaceholder {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-content: center;
+    place-items: center;
+    gap: 0.75rem;
+    background:
+        radial-gradient(circle, var(--accent) 0 10%, transparent 11%),
+        repeating-radial-gradient(circle, var(--ink) 0 2px, #42382d 3px 6px, var(--ink) 7px 9px);
+    color: var(--accent);
+}
+
+.coverPlaceholder svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.releaseInfo {
+    align-self: center;
+}
+
+.credits {
+    margin-top: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.releaseMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 1rem;
+}
+
+.ratingSection {
+    margin-top: 2rem;
+}
+
+.trackSection {
+    margin-top: 2.875rem;
+}
+
+.sectionHeading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sectionHeading > span {
+    color: var(--muted-foreground);
+}
+
+.trackList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: 0;
+    list-style: none;
+}
+
+.trackItem {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.875rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+}
+
+.trackNumber {
+    display: grid;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--sky);
+}
+
+.trackInfo {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.trackInfo > span {
+    overflow: hidden;
+    color: var(--muted-foreground);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.explicitMark {
+    display: inline-grid;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.35rem;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 0.15rem;
+    font-family: var(--font-meta-family);
+    font-size: 0.6rem;
+    vertical-align: 0.15rem;
+}
+
+.trackItem > :last-child {
+    grid-column: 1 / -1;
+}
+
+.emptyTracks {
+    padding: 1rem;
+    border: 2px dashed var(--ink);
+    border-radius: var(--radius);
+}
+
+.errorActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detailSkeleton {
+    display: grid;
+    gap: 1rem;
+}
+
+.detailSkeleton span {
+    min-height: 7rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--card) 72%, var(--sky));
+    box-shadow: var(--shadow);
+}
+
+.detailSkeleton span:first-child {
+    min-height: 20rem;
+}
+
+@media (min-width: 641px) {
+    .desktopHero {
+        display: grid;
+        grid-template-columns: minmax(16rem, 23rem) minmax(0, 1fr);
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .trackItem {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        padding: 0.875rem 1.125rem;
+    }
+
+    .trackItem > :last-child {
+        grid-column: auto;
+    }
+}

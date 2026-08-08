@@ -1,0 +1,6 @@
+.agents
+.claude
+.codex/agents
+dist
+node_modules
+src/api/generated

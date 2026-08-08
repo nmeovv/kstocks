@@ -1,0 +1,184 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-feed-gap);
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    position: relative;
+    isolation: isolate;
+}
+
+.card::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(var(--dot-ink) 1px, transparent 1px);
+    background-size: 1rem 1rem;
+    content: '';
+    pointer-events: none;
+}
+
+.card[data-artwork='ripple'] {
+    transform: rotate(-0.35deg);
+}
+
+.card[data-artwork='orbit'] {
+    transform: rotate(0.3deg);
+}
+
+.card[data-artwork='bloom'] {
+    transform: rotate(-0.2deg);
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-card-gap);
+}
+
+.identity,
+.albumDetails {
+    min-width: 0;
+}
+
+.identity {
+    flex: 1;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mutedText,
+.timestamp,
+.artist {
+    color: var(--muted-foreground);
+}
+
+.timestamp {
+    flex: none;
+}
+
+.cardContent {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-card-gap);
+}
+
+.artist {
+    margin-top: 0.25rem;
+}
+
+.releaseYear {
+    margin-top: 0.5rem;
+    color: var(--subtle-foreground);
+}
+
+.cardFooter {
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.albumArt {
+    position: relative;
+    width: 6rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    border-radius: 0.625rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.albumArt::before,
+.albumArt::after,
+.albumArt span {
+    position: absolute;
+    content: '';
+}
+
+.albumArt[data-artwork='ripple'] {
+    background:
+        radial-gradient(circle at 64% 36%, var(--sun) 0 8%, transparent 9%),
+        repeating-radial-gradient(
+            ellipse at 70% 44%,
+            transparent 0 9px,
+            rgb(255 253 247 / 72%) 10px 12px,
+            transparent 13px 19px
+        ),
+        var(--sky);
+}
+
+.albumArt[data-artwork='ripple']::after {
+    right: -1rem;
+    bottom: -0.75rem;
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--rose);
+    mix-blend-mode: multiply;
+}
+
+.albumArt[data-artwork='orbit'] {
+    background: var(--ink);
+}
+
+.albumArt[data-artwork='orbit']::before {
+    inset: 0.875rem;
+    border: 3px solid var(--sun);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 0.45rem var(--ink),
+        0 0 0 0.6rem var(--rose);
+}
+
+.albumArt[data-artwork='orbit'] span {
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--sky);
+    transform: translate(-50%, -50%);
+}
+
+.albumArt[data-artwork='bloom'] {
+    background: var(--rose);
+}
+
+.albumArt[data-artwork='bloom']::before {
+    inset: -1rem;
+    background:
+        radial-gradient(ellipse at 50% 20%, var(--card) 0 15%, transparent 16%),
+        radial-gradient(ellipse at 80% 50%, var(--sun) 0 15%, transparent 16%),
+        radial-gradient(ellipse at 50% 80%, var(--sky) 0 15%, transparent 16%),
+        radial-gradient(ellipse at 20% 50%, var(--card) 0 15%, transparent 16%);
+    transform: rotate(22deg);
+}
+
+.albumArt[data-artwork='bloom']::after {
+    top: 50%;
+    left: 50%;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--primary);
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 641px) {
+    .cardContent {
+        grid-template-columns: 7rem minmax(0, 1fr);
+    }
+
+    .albumArt {
+        width: 7rem;
+    }
+}

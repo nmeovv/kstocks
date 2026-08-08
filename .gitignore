@@ -1,0 +1,13 @@
+node_modules
+dist
+storybook-static
+*.tsbuildinfo
+.DS_Store
+tests/e2e/artifacts
+tests/e2e/report
+
+# Local credentials and environment-specific configuration
+.env
+.env.*
+!.env.example
+!.env.template

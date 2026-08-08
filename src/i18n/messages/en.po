@@ -1,0 +1,1043 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-08-20 00:29+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. placeholder {0}: detail.tracks.length
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "{0, plural, one {# track} other {# tracks}}"
+msgstr "{0, plural, one {# track} other {# tracks}}"
+
+#. placeholder {0}: target.voterCount
+#: src/features/music/charts/music-charts-content.tsx
+msgid "{0, plural, one {# vote} other {# votes}}"
+msgstr "{0, plural, one {# vote} other {# votes}}"
+
+#. placeholder {0}: item.user.displayName
+#. placeholder {1}: item.album.title
+#: src/features/feed/feed-list.tsx
+msgid "{0} rated {1} {score} out of 10"
+msgstr "{0} rated {1} {score} out of 10"
+
+#. placeholder {0}: artist.name
+#: src/features/music/release-list/release-list-content.tsx
+msgid "{0} releases"
+msgstr "{0} releases"
+
+#: src/features/music/rating-controls.tsx
+msgid "{count, plural, one {# voter} other {# voters}}"
+msgstr "{count, plural, one {# voter} other {# voters}}"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "{releaseCount, plural, one {# release} other {# releases}}"
+msgstr "{releaseCount, plural, one {# release} other {# releases}}"
+
+#: src/features/feed/feed-list.tsx
+msgid "{score} / 10"
+msgstr "{score} / 10"
+
+#: src/features/feed/feed-list.tsx
+msgid "{score} out of 10"
+msgstr "{score} out of 10"
+
+#: src/stories/typography.stories.tsx
+msgid "@mayaplays · 08 AUG 2026"
+msgstr "@mayaplays · 08 AUG 2026"
+
+#: src/stories/typography.stories.tsx
+msgid "1991 · 9.2 / 10"
+msgstr "1991 · 9.2 / 10"
+
+#: src/features/music/rating-controls.tsx
+msgid "29-point release scale"
+msgstr "29-point release scale"
+
+#: src/stories/typography.stories.tsx
+msgid "A generous introduction for an important feature or editorial moment."
+msgstr "A generous introduction for an important feature or editorial moment."
+
+#: src/components/ui/card.stories.tsx
+msgid "A landmark record built from dub, soul, and nocturnal tension."
+msgstr "A landmark record built from dub, soul, and nocturnal tension."
+
+#: src/stories/typography.stories.tsx
+msgid "A quiet classic that gets better every year."
+msgstr "A quiet classic that gets better every year."
+
+#: src/stories/typography.stories.tsx
+msgid "A reusable scale for expressive display text, readable body copy, strong labels, and compact metadata."
+msgstr "A reusable scale for expressive display text, readable body copy, strong labels, and compact metadata."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Add a release"
+msgstr "Add a release"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Add artist"
+msgstr "Add artist"
+
+#: src/features/music/release-list/index.desktop.tsx
+#: src/features/music/release-list/index.touch.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Add release"
+msgstr "Add release"
+
+#: src/components/ui/button.stories.tsx
+msgid "Add to favorites"
+msgstr "Add to favorites"
+
+#: src/components/ui/button.stories.tsx
+msgid "Add to list"
+msgstr "Add to list"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Adding release…"
+msgstr "Adding release…"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgctxt "music release type"
+msgid "Album"
+msgstr "Album"
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+#: src/features/music/music-shell.tsx
+msgid "Album Ratings"
+msgstr "Album Ratings"
+
+#: src/stories/introduction.stories.tsx
+msgid "Album Ratings design system"
+msgstr "Album Ratings design system"
+
+#: src/stories/typography.stories.tsx
+msgid "Albums of the year"
+msgstr "Albums of the year"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "All releases"
+msgstr "All releases"
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Any 7+ vote"
+msgstr "Any 7+ vote"
+
+#. placeholder {0}: index + 1
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Artist {0}"
+msgstr "Artist {0}"
+
+#: src/features/music/release-list/index.desktop.tsx
+#: src/features/music/release-list/index.touch.tsx
+msgid "Artists"
+msgstr "Artists"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Artists are unavailable."
+msgstr "Artists are unavailable."
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Average 7+"
+msgstr "Average 7+"
+
+#. placeholder {0}: format.score(overview.aggregate.average)
+#: src/features/music/rating-controls.tsx
+msgid "Avg {0}"
+msgstr "Avg {0}"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "Back to releases"
+msgstr "Back to releases"
+
+#: src/components/ui/card.stories.tsx
+#: src/stories/popup-preview.tsx
+#: src/stories/typography.stories.tsx
+msgid "Blue Lines"
+msgstr "Blue Lines"
+
+#: src/stories/popup-preview.tsx
+#~ msgid "Blue Lines · Massive Attack"
+#~ msgstr "Blue Lines · Massive Attack"
+
+#: src/stories/typography.stories.tsx
+msgid "Body"
+msgstr "Body"
+
+#: src/features/music/release-list/index.desktop.tsx
+#: src/features/music/release-list/index.touch.tsx
+msgid "Browse music"
+msgstr "Browse music"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Browse releases"
+msgstr "Browse releases"
+
+#: src/features/music/music.stories.tsx
+#: src/features/music/release-list/index.desktop.tsx
+#~ msgid "Browse the unassociated shelf, or use an explicit group or idol ID from a shared link."
+#~ msgstr "Browse the unassociated shelf, or use an explicit group or idol ID from a shared link."
+
+#: src/auth/auth-control.tsx
+#: src/components/ui/button.stories.tsx
+#: src/stories/popup-preview.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Catalog shelf"
+#~ msgstr "Catalog shelf"
+
+#: src/features/music/rating-controls.tsx
+msgid "Change rating"
+msgstr "Change rating"
+
+#: src/features/music/charts/music-charts-content.tsx
+#: src/features/music/music-shell.tsx
+msgid "Charts"
+msgstr "Charts"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Check back after the next catalog import."
+msgstr "Check back after the next catalog import."
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Check the catalog filter and try again."
+#~ msgstr "Check the catalog filter and try again."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Check the highlighted fields."
+msgstr "Check the highlighted fields."
+
+#: src/auth/auth-control.tsx
+msgid "Checking session…"
+msgstr "Checking session…"
+
+#: src/features/music/rating-controls.tsx
+msgid "Choose a release rating"
+msgstr "Choose a release rating"
+
+#: src/stories/popup-preview.tsx
+msgid "Choose a score"
+msgstr "Choose a score"
+
+#: src/features/music/rating-controls.tsx
+msgid "Choose a track rating"
+msgstr "Choose a track rating"
+
+#: src/features/music/rating-controls.tsx
+msgid "Choose a whole-number score from 1 to 10."
+msgstr "Choose a whole-number score from 1 to 10."
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Choose an artist from the catalog to continue."
+msgstr "Choose an artist from the catalog to continue."
+
+#: src/features/music/rating-controls.tsx
+msgid "Clear rating"
+msgstr "Clear rating"
+
+#: src/components/ui/popup.tsx
+msgid "Close popup"
+msgstr "Close popup"
+
+#: src/stories/colors.stories.tsx
+msgid "Color"
+msgstr "Color"
+
+#: src/stories/introduction.stories.tsx
+msgid "Color and type are semantic tokens shared directly with the application."
+msgstr "Color and type are semantic tokens shared directly with the application."
+
+#: src/stories/typography.stories.tsx
+msgid "Comfortable reading text for reviews, descriptions, and product guidance."
+msgstr "Comfortable reading text for reviews, descriptions, and product guidance."
+
+#. placeholder {0}: format.score(aggregate.average)
+#. placeholder {1}: aggregate.voterCount
+#: src/features/music/rating-controls.tsx
+msgid "Community {0} · {1, plural, one {# vote} other {# votes}}"
+msgstr "Community {0} · {1, plural, one {# vote} other {# votes}}"
+
+#: src/features/music/rating-controls.tsx
+msgid "Community breakdown"
+msgstr "Community breakdown"
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Community signal"
+msgstr "Community signal"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgctxt "music release type"
+msgid "Compilation"
+msgstr "Compilation"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Continue draft"
+msgstr "Continue draft"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Continue your saved draft?"
+msgstr "Continue your saved draft?"
+
+#: src/stories/introduction.stories.tsx
+msgid "Controls, documentation, and accessibility checks keep edge cases visible."
+msgstr "Controls, documentation, and accessibility checks keep edge cases visible."
+
+#. placeholder {0}: draft.name
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Cover for {0}"
+msgstr "Cover for {0}"
+
+#. placeholder {0}: release.name
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "Cover of {0}"
+msgstr "Cover of {0}"
+
+#. placeholder {0}: release.name
+#. placeholder {1}: release.artistCredits.join(', ')
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Cover of {0} by {1}"
+msgstr "Cover of {0} by {1}"
+
+#: src/features/music/rating-controls.tsx
+msgid "Current votes, most recently updated first."
+msgstr "Current votes, most recently updated first."
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Date unknown"
+msgstr "Date unknown"
+
+#: src/features/music/rating-controls.tsx
+msgid "decent"
+msgstr "decent"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+#: src/features/music/rating-controls.tsx
+msgctxt "release rating strength"
+msgid "Decent"
+msgstr "Decent"
+
+#: src/components/ui/button.stories.tsx
+msgid "Default"
+msgstr "Default"
+
+#: src/components/ui/button.stories.tsx
+msgid "Delete rating"
+msgstr "Delete rating"
+
+#: src/components/ui/button.stories.tsx
+msgid "Disabled"
+msgstr "Disabled"
+
+#. placeholder {0}: track.discNumber ?? 1
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Disc {0}"
+msgstr "Disc {0}"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Discard draft"
+msgstr "Discard draft"
+
+#: src/features/music/release-upload/index.tsx
+msgid "Discard this upload draft?"
+msgstr "Discard this upload draft?"
+
+#: src/stories/typography.stories.tsx
+msgid "Display"
+msgstr "Display"
+
+#: src/components/ui/badge.stories.tsx
+msgid "Draft"
+msgstr "Draft"
+
+#: src/features/feed/index.tsx
+#: src/features/music/music-shell.tsx
+msgid "Dropping the needle…"
+msgstr "Dropping the needle…"
+
+#: src/components/ui/button.stories.tsx
+msgid "Enabled"
+msgstr "Enabled"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgctxt "music release type"
+msgid "EP"
+msgstr "EP"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Explicit"
+msgstr "Explicit"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Fetching preview…"
+msgstr "Fetching preview…"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Find a group or idol"
+msgstr "Find a group or idol"
+
+#: src/features/music/release-list/index.desktop.tsx
+#: src/features/music/release-list/index.touch.tsx
+msgid "Find an artist"
+msgstr "Find an artist"
+
+#: src/components/ui/badge.stories.tsx
+#: src/stories/typography.stories.tsx
+msgid "Following"
+msgstr "Following"
+
+#: src/stories/introduction.stories.tsx
+msgid "Foundations first"
+msgstr "Foundations first"
+
+#: src/features/feed/index.desktop.tsx
+msgid "Fresh ratings from the people you follow."
+msgstr "Fresh ratings from the people you follow."
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+msgid "Fresh ratings, no algorithm."
+msgstr "Fresh ratings, no algorithm."
+
+#: src/stories/introduction.stories.tsx
+msgid "Friendly, tactile, and built from the same code as the product."
+msgstr "Friendly, tactile, and built from the same code as the product."
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+msgid "From your people"
+msgstr "From your people"
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+msgid "Good records travel by word of mouth."
+msgstr "Good records travel by word of mouth."
+
+#. placeholder {0}: filter.groupId
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Group ID: {0}"
+#~ msgstr "Group ID: {0}"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Group or idol"
+msgstr "Group or idol"
+
+#: src/stories/typography.stories.tsx
+msgid "Headings"
+msgstr "Headings"
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Highly rated releases"
+msgstr "Highly rated releases"
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Highly rated tracks"
+msgstr "Highly rated tracks"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "https://open.spotify.com/album/..."
+msgstr "https://open.spotify.com/album/..."
+
+#. placeholder {0}: filter.idolId
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Idol ID: {0}"
+#~ msgstr "Idol ID: {0}"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "It may have been removed, or the release link may be incomplete."
+msgstr "It may have been removed, or the release link may be incomplete."
+
+#: src/features/music/music-shell.tsx
+msgid "K-pop, scored in fine grooves."
+msgstr "K-pop, scored in fine grooves."
+
+#: src/stories/typography.stories.tsx
+msgid "Labels"
+msgstr "Labels"
+
+#: src/components/ui/button.stories.tsx
+msgid "Large"
+msgstr "Large"
+
+#: src/features/feed/feed-list.tsx
+msgid "Latest album ratings"
+msgstr "Latest album ratings"
+
+#: src/stories/typography.stories.tsx
+msgid "Latest ratings"
+msgstr "Latest ratings"
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+msgid "Latest spins"
+msgstr "Latest spins"
+
+#: src/auth/auth-control.tsx
+msgid "Listener"
+msgstr "Listener"
+
+#: src/stories/typography.stories.tsx
+msgid "Listening notes"
+msgstr "Listening notes"
+
+#: src/features/music/rating-controls.tsx
+msgid "Loading track rating"
+msgstr "Loading track rating"
+
+#: src/auth/auth-control.tsx
+#: src/features/music/music-shell.tsx
+msgid "Log in"
+msgstr "Log in"
+
+#: src/auth/auth-control.tsx
+msgid "Log in through the bot"
+msgstr "Log in through the bot"
+
+#: src/features/music/music-shell.tsx
+msgid "Log in with Telegram to browse the catalog and rate releases."
+msgstr "Log in with Telegram to browse the catalog and rate releases."
+
+#: src/auth/auth-control.tsx
+msgid "Log in with Telegram to make changes."
+msgstr "Log in with Telegram to make changes."
+
+#: src/auth/auth-control.tsx
+msgid "Log out"
+msgstr "Log out"
+
+#: src/auth/auth-control.tsx
+msgid "Logging in…"
+msgstr "Logging in…"
+
+#: src/auth/auth-control.tsx
+msgid "Login could not be completed. Check your connection and try again."
+msgstr "Login could not be completed. Check your connection and try again."
+
+#: src/auth/auth-control.tsx
+msgid "Login token"
+msgstr "Login token"
+
+#: src/components/ui/card.stories.tsx
+#: src/stories/popup-preview.tsx
+msgid "Massive Attack · 1991"
+msgstr "Massive Attack · 1991"
+
+#: src/stories/typography.stories.tsx
+msgid "Maya Lewis"
+msgstr "Maya Lewis"
+
+#: src/stories/typography.stories.tsx
+msgid "Metadata"
+msgstr "Metadata"
+
+#: src/features/music/music-shell.tsx
+msgid "Music"
+msgstr "Music"
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Music releases"
+#~ msgstr "Music releases"
+
+#: src/features/music/music-shell.tsx
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "My ratings"
+msgstr "My ratings"
+
+#: src/stories/typography.stories.tsx
+msgid "Needle Drop"
+msgstr "Needle Drop"
+
+#: src/components/ui/badge.stories.tsx
+msgid "New rating"
+msgstr "New rating"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "No artists are in the catalog yet."
+msgstr "No artists are in the catalog yet."
+
+#: src/features/music/release-list/index.desktop.tsx
+#: src/features/music/release-list/index.touch.tsx
+msgid "No artists match this search."
+msgstr "No artists match this search."
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "No artwork"
+msgstr "No artwork"
+
+#: src/features/music/rating-controls.tsx
+msgid "No community ratings yet"
+msgstr "No community ratings yet"
+
+#: src/features/music/rating-controls.tsx
+msgid "No one has rated this yet."
+msgstr "No one has rated this yet."
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "No ratings meet this chart yet."
+msgstr "No ratings meet this chart yet."
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "No releases are on this shelf yet."
+#~ msgstr "No releases are on this shelf yet."
+
+#. placeholder {0}: artist.name
+#: src/features/music/release-list/release-list-content.tsx
+msgid "No releases for {0} yet."
+msgstr "No releases for {0} yet."
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "No tracks are listed for this release."
+msgstr "No tracks are listed for this release."
+
+#: src/auth/auth-control.tsx
+msgid "Not now"
+msgstr "Not now"
+
+#: src/auth/auth-control.tsx
+msgid "Open a private chat with the Telegram bot, send /login, then paste the token here."
+msgstr "Open a private chat with the Telegram bot, send /login, then paste the token here."
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Open a release and leave your first score."
+msgstr "Open a release and leave your first score."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Open existing release"
+msgstr "Open existing release"
+
+#: src/features/feed/index.desktop.tsx
+#: src/features/feed/index.touch.tsx
+msgid "Open music catalog"
+msgstr "Open music catalog"
+
+#: src/stories/popup-preview.tsx
+msgid "Open popup"
+msgstr "Open popup"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "Ordered play"
+msgstr "Ordered play"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgctxt "music release type"
+msgid "Other"
+msgstr "Other"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Paste the Spotify album link"
+msgstr "Paste the Spotify album link"
+
+#: src/auth/auth-control.tsx
+msgid "Paste the token from Telegram"
+msgstr "Paste the token from Telegram"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Preview release"
+msgstr "Preview release"
+
+#: src/components/ui/button.stories.tsx
+msgid "Primary action"
+msgstr "Primary action"
+
+#: src/features/music/rating-controls.tsx
+msgid "Rate"
+msgstr "Rate"
+
+#: src/features/music/rating-controls.tsx
+msgid "Rate {releaseName}"
+msgstr "Rate {releaseName}"
+
+#: src/features/music/rating-controls.tsx
+msgid "Rate {trackName}"
+msgstr "Rate {trackName}"
+
+#: src/features/music/rating-controls.tsx
+msgid "Rate release"
+msgstr "Rate release"
+
+#: src/components/ui/button.stories.tsx
+#: src/stories/popup-preview.tsx
+msgid "Rate this album"
+msgstr "Rate this album"
+
+#: src/features/feed/feed-list.tsx
+msgid "Rating"
+msgstr "Rating"
+
+#. placeholder {0}: target.name
+#: src/features/music/rating-controls.tsx
+msgid "Ratings for {0}"
+msgstr "Ratings for {0}"
+
+#: src/stories/introduction.stories.tsx
+msgid "Real components"
+msgstr "Real components"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Release"
+msgstr "Release"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release artists"
+msgstr "Release artists"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release date"
+msgstr "Release date"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release details"
+msgstr "Release details"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release intake"
+msgstr "Release intake"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release name"
+msgstr "Release name"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "Release rating"
+msgstr "Release rating"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Release type"
+msgstr "Release type"
+
+#: src/features/music/music-shell.tsx
+msgid "Releases"
+msgstr "Releases"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Releases are unavailable."
+msgstr "Releases are unavailable."
+
+#. placeholder {0}: index + 1
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Remove artist {0}"
+msgstr "Remove artist {0}"
+
+#: src/components/ui/badge.stories.tsx
+msgid "Removed"
+msgstr "Removed"
+
+#: src/auth/auth-control.tsx
+#: src/features/music/charts/music-charts-content.tsx
+#: src/features/music/music-shell.tsx
+#: src/features/music/my-ratings/my-ratings-content.tsx
+#: src/features/music/rating-controls.tsx
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Retry"
+msgstr "Retry"
+
+#: src/features/music/rating-controls.tsx
+#: src/stories/popup-preview.tsx
+#: src/stories/typography.stories.tsx
+msgid "Save rating"
+msgstr "Save rating"
+
+#: src/features/music/rating-controls.tsx
+msgid "Saving…"
+msgstr "Saving…"
+
+#: src/components/ui/badge.stories.tsx
+msgid "See profile"
+msgstr "See profile"
+
+#: src/features/music/rating-controls.tsx
+msgid "Selected"
+msgstr "Selected"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "Selected artist"
+msgstr "Selected artist"
+
+#: src/stories/colors.stories.tsx
+msgid "Semantic tokens keep product intent stable while individual colors can evolve."
+msgstr "Semantic tokens keep product intent stable while individual colors can evolve."
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Seven-plus releases and tracks, ranked by the ratings that count right now."
+msgstr "Seven-plus releases and tracks, ranked by the ratings that count right now."
+
+#: src/stories/popup-preview.tsx
+msgid "Share a score with the people who follow you."
+msgstr "Share a score with the people who follow you."
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Showing releases without a group or idol association"
+#~ msgstr "Showing releases without a group or idol association"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-list/release-list-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgctxt "music release type"
+msgid "Single"
+msgstr "Single"
+
+#: src/components/ui/button.stories.tsx
+msgid "Small"
+msgstr "Small"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Spotify album URL"
+msgstr "Spotify album URL"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Spotify is unavailable right now."
+msgstr "Spotify is unavailable right now."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Spotify preview"
+msgstr "Spotify preview"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Spotify source"
+msgstr "Spotify source"
+
+#: src/features/music/release-upload/index.tsx
+msgid "Start a new upload and discard the saved draft?"
+msgstr "Start a new upload and discard the saved draft?"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Start new"
+msgstr "Start new"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Start with a Spotify album link, then check the details before adding it to the shelf."
+msgstr "Start with a Spotify album link, then check the details before adding it to the shelf."
+
+#: src/stories/introduction.stories.tsx
+msgid "States are part of the API"
+msgstr "States are part of the API"
+
+#: src/stories/introduction.stories.tsx
+msgid "Stories import production primitives instead of maintaining visual copies."
+msgstr "Stories import production primitives instead of maintaining visual copies."
+
+#: src/features/music/rating-controls.tsx
+msgid "strong"
+msgstr "strong"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+#: src/features/music/rating-controls.tsx
+msgctxt "release rating strength"
+msgid "Strong"
+msgstr "Strong"
+
+#: src/components/ui/theme-toggle.tsx
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/components/ui/theme-toggle.tsx
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "That artist could not be found."
+msgstr "That artist could not be found."
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "The artist list could not be loaded. Try again."
+msgstr "The artist list could not be loaded. Try again."
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "The charts could not be loaded."
+msgstr "The charts could not be loaded."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "The cover and tracks are read-only."
+msgstr "The cover and tracks are read-only."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "The preview could not be loaded."
+msgstr "The preview could not be loaded."
+
+#: src/features/music/rating-controls.tsx
+msgid "The rating could not be loaded."
+msgstr "The rating could not be loaded."
+
+#: src/features/music/rating-controls.tsx
+msgid "The rating could not be saved. Try again."
+msgstr "The rating could not be saved. Try again."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "The release could not be added. Your draft is saved; try again."
+msgstr "The release could not be added. Your draft is saved; try again."
+
+#: src/features/music/release-list/release-list-content.tsx
+msgid "The releases for this artist could not be loaded. Try again."
+msgstr "The releases for this artist could not be loaded. Try again."
+
+#: src/features/music/music-shell.tsx
+msgid "The session could not be checked."
+msgstr "The session could not be checked."
+
+#: src/features/music/rating-controls.tsx
+msgid "The voter breakdown could not be loaded."
+msgstr "The voter breakdown could not be loaded."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "These values will be authoritative."
+msgstr "These values will be authoritative."
+
+#: src/stories/introduction.stories.tsx
+msgid "This catalog documents foundations, reusable components, supported states, and accessibility behavior."
+msgstr "This catalog documents foundations, reusable components, supported states, and accessibility behavior."
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "This release could not be found."
+msgstr "This release could not be found."
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "This release shelf could not be loaded."
+#~ msgstr "This release shelf could not be loaded."
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "This Spotify release is already on the shelf."
+msgstr "This Spotify release is already on the shelf."
+
+#: src/auth/auth-control.tsx
+msgid "This token is invalid, expired, or has already been used. Send /login again for a new one."
+msgstr "This token is invalid, expired, or has already been used. Send /login again for a new one."
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Track"
+msgstr "Track"
+
+#: src/features/music/charts/music-charts-content.tsx
+msgid "Track criterion"
+msgstr "Track criterion"
+
+#: src/features/music/release-detail/release-detail-content.tsx
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Track list"
+msgstr "Track list"
+
+#: src/features/music/rating-controls.tsx
+msgid "Track rating"
+msgstr "Track rating"
+
+#: src/features/music/rating-controls.tsx
+msgid "Track ratings use whole numbers only."
+msgstr "Track ratings use whole numbers only."
+
+#: src/features/music/release-list/release-list-content.tsx
+#~ msgid "Try another explicit catalog link, or check back after the next import."
+#~ msgstr "Try another explicit catalog link, or check back after the next import."
+
+#: src/stories/typography.stories.tsx
+msgid "Typography"
+msgstr "Typography"
+
+#: src/features/music/release-list/index.touch.tsx
+#~ msgid "Unassociated releases are the default shelf. Add a group or idol ID in the URL to focus it."
+#~ msgstr "Unassociated releases are the default shelf. Add a group or idol ID in the URL to focus it."
+
+#: src/features/music/release-detail/release-detail-content.tsx
+msgid "Unknown artist"
+msgstr "Unknown artist"
+
+#: src/features/music/rating-controls.tsx
+msgid "Unrated"
+msgstr "Unrated"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Use a valid Spotify album URL."
+msgstr "Use a valid Spotify album URL."
+
+#: src/features/music/rating-controls.tsx
+msgid "Use weak, decent, or strong to place scores between whole numbers."
+msgstr "Use weak, decent, or strong to place scores between whole numbers."
+
+#: src/components/ui/button.stories.tsx
+msgid "View details"
+msgstr "View details"
+
+#: src/components/ui/card.stories.tsx
+msgid "View rating"
+msgstr "View rating"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "We’ll use Spotify to prefill the cover, credits, and track list."
+msgstr "We’ll use Spotify to prefill the cover, credits, and track list."
+
+#: src/features/music/rating-controls.tsx
+msgid "weak"
+msgstr "weak"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+#: src/features/music/rating-controls.tsx
+msgctxt "release rating strength"
+msgid "Weak"
+msgstr "Weak"
+
+#: src/stories/typography.stories.tsx
+msgid "What are you listening to?"
+msgstr "What are you listening to?"
+
+#: src/features/music/rating-controls.tsx
+msgid "You can change or clear this rating at any time."
+msgstr "You can change or clear this rating at any time."
+
+#: src/stories/popup-preview.tsx
+msgid "You can change this score at any time."
+msgstr "You can change this score at any time."
+
+#. placeholder {0}: savedDraft.draft.name
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Your edits for {0} are still on this device."
+msgstr "Your edits for {0} are still on this device."
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Your latest release and track scores, ordered by the last change."
+msgstr "Your latest release and track scores, ordered by the last change."
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Your listening ledger"
+msgstr "Your listening ledger"
+
+#: src/features/music/music-shell.tsx
+msgid "Your music shelf is ready when you are."
+msgstr "Your music shelf is ready when you are."
+
+#: src/stories/popup-preview.tsx
+msgid "Your rating"
+msgstr "Your rating"
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Your rating ledger is empty."
+msgstr "Your rating ledger is empty."
+
+#: src/features/music/my-ratings/my-ratings-content.tsx
+msgid "Your ratings could not be loaded."
+msgstr "Your ratings could not be loaded."
+
+#: src/features/music/rating-controls.tsx
+msgid "Your release rating"
+msgstr "Your release rating"
+
+#: src/features/music/release-upload/release-upload-content.tsx
+msgid "Your session expired. Log in again, then choose Add release when you’re ready. Your draft is saved."
+msgstr "Your session expired. Log in again, then choose Add release when you’re ready. Your draft is saved."

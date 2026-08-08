@@ -1,0 +1,26 @@
+.siteHeader {
+    justify-content: space-between;
+}
+
+.headerEnd {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerSummary {
+    max-width: 14rem;
+    color: var(--subtle-foreground);
+    text-align: right;
+}
+
+.main {
+    max-width: 42rem;
+    margin-inline: auto;
+}
+
+.sectionHeading {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+}

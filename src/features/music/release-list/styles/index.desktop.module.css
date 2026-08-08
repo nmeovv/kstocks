@@ -1,0 +1,52 @@
+.main {
+    display: grid;
+    grid-template-columns: 17.5rem minmax(0, 1fr);
+    gap: 3rem;
+}
+
+.artistRail {
+    position: sticky;
+    top: 1.5rem;
+    min-width: 0;
+    align-self: start;
+}
+
+.headingRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.artistSearch {
+    margin-top: 1.5rem;
+}
+
+.artistList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.artistOption {
+    width: 100%;
+    min-height: 4.125rem;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.375rem;
+    text-align: left;
+}
+
+.artistOption > :global(span:first-child) {
+    width: 3.25rem;
+    flex: none;
+}
+
+.artistOption > :global(span:last-child) {
+    font-size: var(--font-size-3);
+}
+
+.artistCatalog {
+    min-width: 0;
+}

@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "--registry=https://registry.npmjs.org/",
+                "-y",
+                "@playwright/mcp@latest",
+                "--browser=chromium",
+                "--viewport-size=390,844"
+            ]
+        }
+    }
+}

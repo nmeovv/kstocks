@@ -1,0 +1,117 @@
+.pageShell {
+    width: 100%;
+    max-width: 55rem;
+    min-height: 100svh;
+    margin-inline: auto;
+    padding: 0 var(--space-page-inline) var(--space-page-bottom);
+}
+
+.siteHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-header-gap);
+    padding: var(--space-header-top) 0 0.625rem;
+}
+
+.brandLead {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: var(--space-header-gap);
+}
+
+.brandLead > div:last-child {
+    min-width: 0;
+}
+
+.headerActions {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.recordMark {
+    position: relative;
+    display: grid;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    flex: none;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, var(--sun) 0 12%, transparent 13%),
+        repeating-radial-gradient(circle, var(--ink) 0 2px, #42382d 3px 5px, var(--ink) 6px 8px);
+    box-shadow: var(--shadow-sm);
+    transform: rotate(-5deg);
+}
+
+.recordMark span {
+    width: 0.75rem;
+    aspect-ratio: 1;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--sun);
+}
+
+.tagline {
+    margin-top: 0.25rem;
+    color: var(--muted-foreground);
+    font-style: italic;
+}
+
+.feedSection {
+    padding-top: var(--space-feature-top);
+}
+
+.sectionHeading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-heading-gap);
+    margin-bottom: var(--space-section-head-bottom);
+}
+
+.eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--subtle-foreground);
+}
+
+.sectionHeading > p {
+    color: var(--muted-foreground);
+    font-style: italic;
+}
+
+.loadingFeed {
+    display: grid;
+    min-height: 100svh;
+    padding: 1.5rem;
+    place-items: center;
+}
+
+.musicLink {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.625rem 0.875rem;
+    border: 2px solid var(--ink);
+    border-radius: 0.75rem;
+    background: var(--accent);
+    box-shadow: var(--shadow-sm);
+    color: inherit;
+    font-family: var(--font-display-family);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+}
+
+.musicLink svg {
+    width: 1.125rem;
+}
+
+.musicLink:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
+    outline-offset: 3px;
+}

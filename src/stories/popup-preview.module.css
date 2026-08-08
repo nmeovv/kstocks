@@ -1,0 +1,83 @@
+.stage {
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    padding: var(--space-page-inline);
+}
+
+.albumCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.albumCard p + p {
+    margin-top: 0.25rem;
+    color: var(--muted-foreground);
+}
+
+.score {
+    display: grid;
+    min-width: 3.5rem;
+    min-height: 2.5rem;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 2px 2px 0 var(--ink);
+    font-family: var(--font-display-family);
+    font-size: var(--font-size-5);
+}
+
+.scorePicker {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.scorePicker legend {
+    margin-bottom: 0.625rem;
+}
+
+.scorePicker > div {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.scorePicker label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.scorePicker input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.scorePicker span {
+    display: grid;
+    min-height: 2.75rem;
+    place-items: center;
+    border: 2px solid var(--ink);
+    border-radius: 0.75rem;
+    background: var(--card);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+.scorePicker input:checked + span {
+    background: var(--accent);
+    box-shadow: 1px 1px 0 var(--ink);
+    transform: translate(1px, 1px);
+}
+
+.scorePicker input:focus-visible + span {
+    outline: 3px solid color-mix(in srgb, var(--ring) 50%, transparent);
+    outline-offset: 3px;
+}

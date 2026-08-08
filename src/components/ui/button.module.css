@@ -1,0 +1,122 @@
+.button {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--font-display-family);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        box-shadow 100ms ease,
+        transform 100ms ease,
+        background-color 120ms ease,
+        color 120ms ease;
+    user-select: none;
+}
+
+.button:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px var(--ink);
+}
+
+.button:active:not([disabled]) {
+    box-shadow: 1px 1px 0 var(--ink);
+    transform: translate(2px, 2px);
+}
+
+.button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.button > svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: none;
+    pointer-events: none;
+}
+
+.default,
+.secondary,
+.outline,
+.destructive {
+    box-shadow: var(--shadow-sm);
+}
+
+.default {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.secondary {
+    background: var(--accent);
+    color: var(--accent-foreground);
+}
+
+.outline {
+    background: var(--card);
+    color: var(--foreground);
+}
+
+.destructive {
+    background: var(--destructive);
+    color: var(--primary-foreground);
+}
+
+.ghost {
+    border-color: transparent;
+    background: transparent;
+    color: var(--foreground);
+}
+
+.sm {
+    min-height: 2.25rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.medium {
+    min-height: 2.75rem;
+    padding: 0.625rem 1rem;
+    font-size: 1rem;
+}
+
+.lg {
+    min-height: 3.25rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+}
+
+.icon {
+    width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+@media (hover: hover) {
+    .default:hover {
+        background: var(--brand-accent-hover);
+    }
+
+    .secondary:hover {
+        background: var(--sun-hover);
+    }
+
+    .outline:hover,
+    .ghost:hover {
+        background: var(--muted);
+    }
+
+    .destructive:hover {
+        background: color-mix(in srgb, var(--destructive) 88%, var(--ink));
+    }
+}

@@ -1,0 +1,23 @@
+.pageShell {
+    max-width: 55rem;
+}
+
+.siteHeader {
+    align-items: flex-start;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nav :global(a) {
+    padding-inline: 0.4rem;
+    font-size: var(--font-size-2);
+}
+
+@media (max-width: 390px) {
+    .siteHeader :global(.type-meta-sm) {
+        display: none;
+    }
+}
