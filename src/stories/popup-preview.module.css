@@ -9,11 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .albumCard p + p {
-    margin-top: 0.25rem;
+    margin-top: var(--space-1);
     color: var(--muted-foreground);
 }
 
@@ -22,10 +22,10 @@
     min-width: 3.5rem;
     min-height: 2.5rem;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 999px;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-pill);
     background: var(--accent);
-    box-shadow: 2px 2px 0 var(--ink);
+    box-shadow: var(--shadow-nav);
     font-family: var(--font-display-family);
     font-size: var(--font-size-5);
 }
@@ -38,13 +38,13 @@
 }
 
 .scorePicker legend {
-    margin-bottom: 0.625rem;
+    margin-bottom: var(--space-4);
 }
 
 .scorePicker > div {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.5rem;
+    gap: var(--space-3);
 }
 
 .scorePicker label {
@@ -63,21 +63,21 @@
 
 .scorePicker span {
     display: grid;
-    min-height: 2.75rem;
+    min-height: var(--target-min);
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 0.75rem;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-control-sm);
     background: var(--card);
-    box-shadow: 2px 2px 0 var(--ink);
+    box-shadow: var(--shadow-nav);
 }
 
 .scorePicker input:checked + span {
     background: var(--accent);
-    box-shadow: 1px 1px 0 var(--ink);
+    box-shadow: var(--shadow-pressed);
     transform: translate(1px, 1px);
 }
 
 .scorePicker input:focus-visible + span {
-    outline: 3px solid color-mix(in srgb, var(--ring) 50%, transparent);
-    outline-offset: 3px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }

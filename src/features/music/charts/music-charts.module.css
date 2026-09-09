@@ -12,31 +12,32 @@
 .sectionTitle {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: var(--space-5);
+    margin-bottom: var(--space-7);
 }
 
 .sectionTitle > svg {
     width: 2.5rem;
     height: 2.5rem;
     padding: 0.45rem;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--accent);
+    color: var(--on-sun);
     box-shadow: var(--shadow-sm);
 }
 
 .criteria {
     display: flex;
-    gap: 0.625rem;
-    margin-bottom: 1rem;
+    gap: var(--space-4);
+    margin-bottom: var(--space-7);
 }
 
 .criterion {
-    min-height: 2.5rem;
-    padding: 0.55rem 0.75rem;
-    border: 2px solid var(--ink);
-    border-radius: 999px;
+    min-height: var(--target-min);
+    padding: 0.55rem var(--space-5);
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-pill);
     background: var(--card);
     color: inherit;
     font-family: var(--font-display-family);
@@ -47,13 +48,14 @@
 
 .criterionActive {
     background: var(--sky);
+    color: var(--on-sky);
     box-shadow: var(--shadow-sm);
 }
 
 .chartList {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--space-5);
     padding: 0;
     list-style: none;
 }
@@ -62,10 +64,10 @@
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-5);
     min-height: 5.25rem;
-    padding: 0.75rem 0.875rem;
-    border: 2px solid var(--ink);
+    padding: var(--space-5) var(--space-6);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow-sm);
@@ -78,9 +80,10 @@
     width: 2.25rem;
     aspect-ratio: 1;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--muted);
+    color: var(--on-rose);
 }
 
 .targetName {
@@ -98,20 +101,20 @@
 }
 
 .emptyChart {
-    padding: 1rem;
-    border: 2px dashed var(--ink);
+    padding: var(--space-7);
+    border: var(--border-width) dashed var(--ink);
     border-radius: var(--radius);
     color: var(--muted-foreground);
 }
 
 .skeleton {
     display: grid;
-    gap: 1.25rem;
+    gap: var(--space-9);
 }
 
 .skeleton span {
     min-height: 15rem;
-    border: 2px solid var(--ink);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: color-mix(in srgb, var(--card) 72%, var(--sky));
     box-shadow: var(--shadow);
@@ -120,6 +123,6 @@
 @media (min-width: 641px) {
     .desktopGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2rem;
+        gap: var(--space-11);
     }
 }

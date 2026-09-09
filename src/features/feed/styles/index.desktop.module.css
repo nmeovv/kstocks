@@ -5,7 +5,7 @@
 .headerEnd {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .headerSummary {

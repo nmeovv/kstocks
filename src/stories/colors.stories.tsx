@@ -2,19 +2,12 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {Trans} from '@lingui/react/macro';
 
 import styles from './design-system.module.css';
+import {useCssColors} from './use-css-colors';
 
-const COLOR_TOKENS = [
-    {name: 'background', value: '#fff4dd'},
-    {name: 'card', value: '#fffdf7'},
-    {name: 'foreground', value: '#26201a'},
-    {name: 'primary', value: '#ff5b35'},
-    {name: 'accent', value: '#ffd84d'},
-    {name: 'muted', value: '#ffb9cc'},
-    {name: 'sky', value: '#a5dcff'},
-    {name: 'destructive', value: '#d92d20'},
-] as const;
+const COLOR_TOKENS = ['background', 'card', 'foreground', 'primary', 'accent', 'muted', 'sky', 'destructive'] as const;
 
 const Colors = () => {
+    const colors = useCssColors();
     return (
         <main className={styles.page}>
             <header className={styles.intro}>
@@ -27,15 +20,11 @@ const Colors = () => {
             </header>
             <div className={styles.grid}>
                 {COLOR_TOKENS.map(token => (
-                    <article className={styles.tokenCard} key={token.name}>
-                        <div
-                            aria-hidden="true"
-                            className={styles.swatch}
-                            style={{background: `var(--${token.name})`}}
-                        />
+                    <article className={styles.tokenCard} key={token}>
+                        <div aria-hidden="true" className={styles.swatch} style={{background: `var(--${token})`}} />
                         <div className={styles.tokenMeta}>
-                            <strong className="type-heading-md">--{token.name}</strong>
-                            <code className={`${styles.tokenValue} type-meta-sm`}>{token.value}</code>
+                            <strong className="type-heading-md">--{token}</strong>
+                            <code className={`${styles.tokenValue} type-meta-sm`}>{colors?.[token]}</code>
                         </div>
                     </article>
                 ))}

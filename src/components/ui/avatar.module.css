@@ -5,16 +5,15 @@
     height: 2rem;
     flex: none;
     user-select: none;
-    border-radius: 50%;
+    border-radius: var(--radius-round);
 }
 
 .root::after {
     position: absolute;
     inset: 0;
-    border: 1px solid var(--border);
+    border: var(--border-width-fine) solid color-mix(in srgb, var(--border) 45%, transparent);
     border-radius: inherit;
     content: '';
-    mix-blend-mode: darken;
     pointer-events: none;
 }
 
@@ -43,26 +42,26 @@
     justify-content: center;
     border-radius: inherit;
     background: var(--muted);
-    color: var(--muted-foreground);
-    font-size: 0.875rem;
+    color: var(--on-rose);
+    font-size: var(--font-size-3);
 }
 
 .root[data-size='sm'] .fallback {
-    font-size: 0.75rem;
+    font-size: var(--font-size-2);
 }
 
 .badge {
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: var(--layer-raised);
     display: inline-flex;
     width: 0.625rem;
     height: 0.625rem;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--background);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--background);
+    border-radius: var(--radius-round);
     background: var(--primary);
     color: var(--primary-foreground);
     user-select: none;
@@ -96,7 +95,7 @@
 }
 
 .group > [data-slot='avatar'] {
-    outline: 2px solid var(--background);
+    outline: var(--border-width) solid var(--background);
 }
 
 .groupCount {
@@ -107,11 +106,11 @@
     flex: none;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: var(--radius-round);
     background: var(--muted);
-    color: var(--muted-foreground);
-    font-size: 0.875rem;
-    outline: 2px solid var(--background);
+    color: var(--on-rose);
+    font-size: var(--font-size-3);
+    outline: var(--border-width) solid var(--background);
 }
 
 .group:has([data-size='sm']) .groupCount {

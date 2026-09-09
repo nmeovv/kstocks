@@ -7,7 +7,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-9);
     color: inherit;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2rem;
@@ -20,7 +20,7 @@
 .hero {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: var(--space-9);
 }
 
 .coverFrame {
@@ -28,7 +28,7 @@
     width: min(100%, 23rem);
     aspect-ratio: 1;
     overflow: hidden;
-    border: 2px solid var(--ink);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: var(--muted);
     box-shadow: var(--shadow);
@@ -47,10 +47,10 @@
     height: 100%;
     place-content: center;
     place-items: center;
-    gap: 0.75rem;
+    gap: var(--space-5);
     background:
         radial-gradient(circle, var(--accent) 0 10%, transparent 11%),
-        repeating-radial-gradient(circle, var(--ink) 0 2px, #42382d 3px 6px, var(--ink) 7px 9px);
+        repeating-radial-gradient(circle, var(--ink) 0 2px, var(--vinyl-groove) 3px 6px, var(--ink) 7px 9px);
     color: var(--accent);
 }
 
@@ -64,19 +64,19 @@
 }
 
 .credits {
-    margin-top: 0.75rem;
+    margin-top: var(--space-5);
     color: var(--muted-foreground);
 }
 
 .releaseMeta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.625rem;
-    margin-top: 1rem;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
 }
 
 .ratingSection {
-    margin-top: 2rem;
+    margin-top: var(--space-11);
 }
 
 .trackSection {
@@ -87,8 +87,8 @@
     display: flex;
     align-items: end;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: var(--space-7);
+    margin-bottom: var(--space-7);
 }
 
 .sectionHeading > span {
@@ -98,7 +98,7 @@
 .trackList {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: var(--space-6);
     padding: 0;
     list-style: none;
 }
@@ -106,10 +106,10 @@
 .trackItem {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.75rem;
+    gap: var(--space-5);
     align-items: center;
-    padding: 0.875rem;
-    border: 2px solid var(--ink);
+    padding: var(--space-6);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow-sm);
@@ -120,8 +120,8 @@
     width: 2.5rem;
     aspect-ratio: 1;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--sky);
 }
 
@@ -129,7 +129,7 @@
     display: flex;
     min-width: 0;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--space-1);
 }
 
 .trackInfo > span {
@@ -145,10 +145,10 @@
     height: 1rem;
     margin-left: 0.35rem;
     place-items: center;
-    border: 1px solid currentColor;
-    border-radius: 0.15rem;
+    border: var(--border-width-fine) solid currentColor;
+    border-radius: var(--radius-detail);
     font-family: var(--font-meta-family);
-    font-size: 0.6rem;
+    font-size: var(--font-size-1);
     vertical-align: 0.15rem;
 }
 
@@ -157,8 +157,8 @@
 }
 
 .emptyTracks {
-    padding: 1rem;
-    border: 2px dashed var(--ink);
+    padding: var(--space-7);
+    border: var(--border-width) dashed var(--ink);
     border-radius: var(--radius);
 }
 
@@ -166,17 +166,17 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .detailSkeleton {
     display: grid;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .detailSkeleton span {
     min-height: 7rem;
-    border: 2px solid var(--ink);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: color-mix(in srgb, var(--card) 72%, var(--sky));
     box-shadow: var(--shadow);
@@ -191,12 +191,12 @@
         display: grid;
         grid-template-columns: minmax(16rem, 23rem) minmax(0, 1fr);
         align-items: center;
-        gap: 2rem;
+        gap: var(--space-11);
     }
 
     .trackItem {
         grid-template-columns: auto minmax(0, 1fr) auto;
-        padding: 0.875rem 1.125rem;
+        padding: var(--space-6) var(--space-8);
     }
 
     .trackItem > :last-child {

@@ -9,15 +9,6 @@ import type {
     MusicVoterRating,
 } from '@/api/music';
 
-export const musicArtwork = `data:image/svg+xml,${encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-  <rect width="600" height="600" fill="#ff5b35"/>
-  <circle cx="300" cy="300" r="210" fill="#26201a"/>
-  <circle cx="300" cy="300" r="150" fill="none" stroke="#ffb9cc" stroke-width="28"/>
-  <path d="M135 330 300 90l165 240-165 180z" fill="#ffd84d"/>
-  <circle cx="300" cy="300" r="34" fill="#a5dcff" stroke="#26201a" stroke-width="12"/>
-</svg>`)} `;
-
 export const releaseSummaries: MusicReleaseSummary[] = [
     {
         id: 101,
@@ -25,7 +16,7 @@ export const releaseSummaries: MusicReleaseSummary[] = [
         releaseType: 'album',
         releaseDate: '2024-05-27',
         artistCredits: ['aespa'],
-        selectedCover: {id: 1, source: 'custom', uri: musicArtwork, width: 600, height: 600, preferred: true},
+        selectedCover: null,
     },
     {
         id: 102,
@@ -54,7 +45,7 @@ export const musicArtists: MusicArtistSummary[] = [
 
 export const releaseDetail: MusicReleaseDetail = {
     release: releaseSummaries[0],
-    images: [{id: 1, source: 'custom', uri: musicArtwork, width: 600, height: 600, preferred: true}],
+    images: [],
     groups: [{id: 44, name: 'aespa'}],
     idols: [{id: 87, name: 'NINGNING'}],
     tracks: [
@@ -125,3 +116,19 @@ export const ratedTracks: MusicRatedTarget[] = [
     {id: 201, name: 'Supernova', voterCount: 8, average: 8.6},
     {id: 204, name: 'Cosmic', voterCount: 6, average: 8.1},
 ];
+
+export const createMusicArtwork = (colors: {
+    'brand-accent': string;
+    ink: string;
+    rose: string;
+    sun: string;
+    sky: string;
+}) =>
+    `data:image/svg+xml,${encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="${colors['brand-accent']}"/>
+  <circle cx="300" cy="300" r="210" fill="${colors['ink']}"/>
+  <circle cx="300" cy="300" r="150" fill="none" stroke="${colors['rose']}" stroke-width="28"/>
+  <path d="M135 330 300 90l165 240-165 180z" fill="${colors['sun']}"/>
+  <circle cx="300" cy="300" r="34" fill="${colors['sky']}" stroke="${colors['ink']}" stroke-width="12"/>
+</svg>`)}`;

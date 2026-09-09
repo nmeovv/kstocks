@@ -1,7 +1,7 @@
 .main {
     display: grid;
     grid-template-columns: 17.5rem minmax(0, 1fr);
-    gap: 3rem;
+    gap: var(--space-12);
 }
 
 .artistRail {
@@ -15,26 +15,26 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: var(--space-5);
 }
 
 .artistSearch {
-    margin-top: 1.5rem;
+    margin-top: var(--space-10);
 }
 
 .artistList {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
+    gap: var(--space-3);
+    margin-top: var(--space-9);
 }
 
 .artistOption {
     width: 100%;
     min-height: 4.125rem;
     flex-direction: row;
-    gap: 0.75rem;
-    padding: 0.375rem;
+    gap: var(--space-5);
+    padding: var(--space-2);
     text-align: left;
 }
 

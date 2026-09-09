@@ -1,47 +1,47 @@
 .page {
     width: min(100%, 64rem);
     margin-inline: auto;
-    padding: 2rem var(--space-page-inline) var(--space-page-bottom);
+    padding: var(--space-11) var(--space-page-inline) var(--space-page-bottom);
 }
 
 .intro {
     max-width: 44rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-11);
 }
 
 .intro p {
     max-width: 38rem;
-    margin-top: 0.75rem;
+    margin-top: var(--space-5);
     color: var(--muted-foreground);
 }
 
 .manifesto {
     display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: var(--space-7);
+    margin-top: var(--space-11);
 }
 
 .manifestoCard {
-    padding: 1.25rem;
-    border: 2px solid var(--border);
+    padding: var(--space-9);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow-sm);
 }
 
 .manifestoCard p {
-    margin-top: 0.5rem;
+    margin-top: var(--space-3);
     color: var(--muted-foreground);
 }
 
 .grid {
     display: grid;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .tokenCard {
     overflow: hidden;
-    border: 2px solid var(--border);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow-sm);
@@ -49,13 +49,13 @@
 
 .swatch {
     min-height: 7rem;
-    border-bottom: 2px solid var(--border);
+    border-bottom: var(--border-width) solid var(--border);
 }
 
 .tokenMeta {
     display: grid;
-    gap: 0.25rem;
-    padding: 0.875rem 1rem;
+    gap: var(--space-1);
+    padding: var(--space-6) var(--space-7);
 }
 
 .tokenValue {
@@ -64,7 +64,7 @@
 
 .typeList {
     display: grid;
-    gap: 1rem;
+    gap: var(--space-7);
 }
 
 .typeSection + .typeSection {
@@ -72,14 +72,14 @@
 }
 
 .typeSection > h2 {
-    margin: 0 0 1rem;
+    margin: 0 0 var(--space-7);
 }
 
 .typeRow {
     display: grid;
-    gap: 1rem;
-    padding: 1.25rem;
-    border: 2px solid var(--border);
+    gap: var(--space-7);
+    padding: var(--space-9);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow-sm);
@@ -94,8 +94,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: var(--space-7);
+    padding: var(--space-7);
 }
 
 .cardStage {
@@ -104,22 +104,22 @@
 
 @media (min-width: 641px) {
     .page {
-        padding-top: 3rem;
+        padding-top: var(--space-12);
     }
 
     .grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
+        gap: var(--space-10);
     }
 
     .manifesto {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
+        gap: var(--space-10);
     }
 
     .typeRow {
         grid-template-columns: 12rem minmax(0, 1fr);
         align-items: center;
-        padding: 1.5rem;
+        padding: var(--space-10);
     }
 }

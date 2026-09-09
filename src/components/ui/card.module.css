@@ -1,23 +1,23 @@
 .card {
-    --card-spacing-x: 1.125rem;
-    --card-spacing-y: 0.875rem;
+    --card-spacing-x: var(--space-8);
+    --card-spacing-y: var(--space-6);
 
     display: flex;
     flex-direction: column;
     gap: var(--card-spacing-y);
     overflow: hidden;
     padding-block: var(--card-spacing-y);
-    border: 2px solid var(--border);
-    border-radius: calc(var(--radius) + 0.25rem);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-card);
     background: var(--card);
     box-shadow: var(--shadow);
     color: var(--card-foreground);
-    font-size: 0.875rem;
+    font-size: var(--font-size-3);
 }
 
 .card[data-size='sm'] {
-    --card-spacing-x: 0.75rem;
-    --card-spacing-y: 0.75rem;
+    --card-spacing-x: var(--space-5);
+    --card-spacing-y: var(--space-5);
 }
 
 .card:has(> [data-slot='card-footer']) {
@@ -29,20 +29,20 @@
 }
 
 .card > img:first-child {
-    border-radius: calc(var(--radius) + 0.25rem) calc(var(--radius) + 0.25rem) 0 0;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
 
 .card > img:last-child {
-    border-radius: 0 0 calc(var(--radius) + 0.25rem) calc(var(--radius) + 0.25rem);
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
 }
 
 .header {
     display: grid;
     grid-auto-rows: min-content;
     align-items: start;
-    gap: 0.25rem;
+    gap: var(--space-1);
     padding-inline: var(--card-spacing-x);
-    border-radius: calc(var(--radius) + 0.25rem) calc(var(--radius) + 0.25rem) 0 0;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
 
 .header:has([data-slot='card-action']) {
@@ -54,18 +54,18 @@
 }
 
 .title {
-    font-size: 1rem;
+    font-size: var(--font-size-4);
     font-weight: 500;
     line-height: 1.375;
 }
 
 .card[data-size='sm'] .title {
-    font-size: 0.875rem;
+    font-size: var(--font-size-3);
 }
 
 .description {
     color: var(--muted-foreground);
-    font-size: 0.875rem;
+    font-size: var(--font-size-3);
 }
 
 .action {
@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     padding: var(--card-spacing-y) var(--card-spacing-x);
-    border-top: 2px solid var(--border);
-    border-radius: 0 0 var(--radius) var(--radius);
+    border-top: var(--border-width) solid var(--border);
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
     background: var(--secondary);
 }

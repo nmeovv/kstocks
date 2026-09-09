@@ -8,7 +8,7 @@
 .skeleton {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-7);
     padding: 0;
     list-style: none;
 }
@@ -18,9 +18,9 @@
     display: flex;
     min-height: 7rem;
     align-items: center;
-    gap: 1rem;
-    padding: 0.875rem 1rem;
-    border: 2px solid var(--ink);
+    gap: var(--space-7);
+    padding: var(--space-6) var(--space-7);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: var(--card);
     box-shadow: var(--shadow);
@@ -52,8 +52,8 @@
 }
 
 .ratingCard:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
-    outline-offset: 3px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }
 
 .skeleton span {
@@ -64,6 +64,6 @@
     .desktopList {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
+        gap: var(--space-9);
     }
 }

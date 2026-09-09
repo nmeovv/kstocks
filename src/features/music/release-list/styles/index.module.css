@@ -5,9 +5,9 @@
 .artistSearch {
     width: 100%;
     min-height: 3rem;
-    margin-top: 1.25rem;
-    padding: 0 0.875rem;
-    border: 2px solid var(--ink);
+    margin-top: var(--space-9);
+    padding: 0 var(--space-6);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: var(--card);
     color: var(--foreground);
@@ -17,8 +17,8 @@
 .artistSearch:focus-visible,
 .artistOption:focus-visible,
 .releaseCard:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
-    outline-offset: 3px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }
 
 .artistOption {
@@ -27,9 +27,9 @@
     min-height: 5.5rem;
     flex-direction: column;
     align-items: center;
-    gap: 0.375rem;
-    padding: 0.25rem;
-    border: 1px solid transparent;
+    gap: var(--space-2);
+    padding: var(--space-1);
+    border: var(--border-width-fine) solid transparent;
     border-radius: var(--radius);
     background: transparent;
     color: inherit;
@@ -41,8 +41,8 @@
     width: 3.875rem;
     aspect-ratio: 1;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--sky);
     box-shadow: var(--shadow-sm);
     font-family: var(--font-display-family);
@@ -60,24 +60,24 @@
 }
 
 .artistOptionSelected .artistInitial {
-    outline: 4px solid var(--sun);
-    outline-offset: 2px;
+    outline: var(--selection-ring-width) solid var(--selection-ring-color);
+    outline-offset: var(--selection-ring-offset);
 }
 
 .artistOption:active .artistInitial {
-    box-shadow: 1px 1px 0 var(--ink);
+    box-shadow: var(--shadow-pressed);
     transform: translate(2px, 2px);
 }
 
 .noArtistMatches {
-    margin: 0.75rem 0 1.5rem;
+    margin: var(--space-5) 0 var(--space-10);
     color: var(--muted-foreground);
 }
 
 .artistHero {
-    margin-bottom: 1rem;
-    padding: 1.125rem;
-    border: 2px solid var(--ink);
+    margin-bottom: var(--space-7);
+    padding: var(--space-8);
+    border: var(--border-width) solid var(--ink);
     border-radius: var(--radius);
     background: color-mix(in srgb, var(--rose) 70%, var(--sky));
     box-shadow: var(--shadow);
@@ -88,14 +88,14 @@
 }
 
 .releaseCount {
-    margin-top: 0.25rem;
+    margin-top: var(--space-1);
     color: var(--muted-foreground);
 }
 
 .releaseGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.375rem 0.75rem;
+    gap: 1.375rem var(--space-5);
     padding: 0;
     list-style: none;
 }
@@ -112,8 +112,8 @@
 .coverFallback {
     width: 100%;
     aspect-ratio: 1;
-    border: 2px solid var(--ink);
-    border-radius: 0.5rem;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-thumbnail);
     box-shadow: var(--shadow-sm);
 }
 
@@ -134,8 +134,8 @@
     width: 38%;
     height: 38%;
     padding: 0.55rem;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--accent);
 }
 
@@ -143,8 +143,8 @@
     display: flex;
     min-width: 0;
     flex-direction: column;
-    gap: 0.375rem;
-    padding-top: 0.625rem;
+    gap: var(--space-2);
+    padding-top: var(--space-4);
 }
 
 .releaseDetails strong {
@@ -155,20 +155,20 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.375rem 0.5rem;
+    gap: var(--space-2) var(--space-3);
     color: var(--muted-foreground);
 }
 
 .skeletonGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.375rem 0.75rem;
+    gap: 1.375rem var(--space-5);
 }
 
 .skeletonGrid span {
     aspect-ratio: 0.78;
-    border: 2px solid var(--ink);
-    border-radius: 0.5rem;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-thumbnail);
     background: color-mix(in srgb, var(--card) 72%, var(--sky));
     box-shadow: var(--shadow-sm);
 }
@@ -183,7 +183,7 @@
     .releaseGrid,
     .skeletonGrid {
         grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
-        gap: 1.75rem 1.125rem;
+        gap: 1.75rem var(--space-8);
     }
 }
 
@@ -195,7 +195,7 @@
 
     .releaseCard:hover .releaseCover,
     .releaseCard:hover .coverFallback {
-        box-shadow: 5px 5px 0 var(--ink);
+        box-shadow: var(--shadow-artwork-hover);
         transform: translate(-2px, -2px);
     }
 }
@@ -204,7 +204,7 @@
     .releaseCover,
     .coverFallback {
         transition:
-            box-shadow 120ms ease,
-            transform 120ms ease;
+            box-shadow var(--motion-fast) var(--motion-ease),
+            transform var(--motion-fast) var(--motion-ease);
     }
 }

@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-header-gap);
-    padding: var(--space-header-top) 0 0.625rem;
+    padding: var(--space-header-top) 0 var(--space-4);
 }
 
 .brandLead {
@@ -29,7 +29,7 @@
     display: flex;
     flex: none;
     align-items: center;
-    gap: 0.625rem;
+    gap: var(--space-4);
 }
 
 .recordMark {
@@ -39,11 +39,11 @@
     aspect-ratio: 1;
     flex: none;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background:
         radial-gradient(circle, var(--sun) 0 12%, transparent 13%),
-        repeating-radial-gradient(circle, var(--ink) 0 2px, #42382d 3px 5px, var(--ink) 6px 8px);
+        repeating-radial-gradient(circle, var(--ink) 0 2px, var(--vinyl-groove) 3px 5px, var(--ink) 6px 8px);
     box-shadow: var(--shadow-sm);
     transform: rotate(-5deg);
 }
@@ -51,13 +51,13 @@
 .recordMark span {
     width: 0.75rem;
     aspect-ratio: 1;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--sun);
 }
 
 .tagline {
-    margin-top: 0.25rem;
+    margin-top: var(--space-1);
     color: var(--muted-foreground);
     font-style: italic;
 }
@@ -74,7 +74,7 @@
 }
 
 .eyebrow {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-3);
     color: var(--subtle-foreground);
 }
 
@@ -86,22 +86,22 @@
 .loadingFeed {
     display: grid;
     min-height: 100svh;
-    padding: 1.5rem;
+    padding: var(--space-10);
     place-items: center;
 }
 
 .musicLink {
     display: inline-flex;
-    min-height: 2.75rem;
+    min-height: var(--target-min);
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding: 0.625rem 0.875rem;
-    border: 2px solid var(--ink);
-    border-radius: 0.75rem;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+    padding: var(--space-4) var(--space-6);
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-control-sm);
     background: var(--accent);
     box-shadow: var(--shadow-sm);
-    color: inherit;
+    color: var(--on-sun);
     font-family: var(--font-display-family);
     font-weight: var(--font-weight-bold);
     text-decoration: none;
@@ -112,6 +112,6 @@
 }
 
 .musicLink:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--ring) 38%, transparent);
-    outline-offset: 3px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }

@@ -1,7 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
+import {useCssColors} from '@/stories/use-css-colors';
+
 import {MusicChartsContent} from './charts/music-charts-content';
 import {
+    createMusicArtwork,
     currentRatings,
     musicArtists,
     ratedReleases,
@@ -33,21 +36,7 @@ const storyFrame = (children: React.ReactNode) => (
 const noAction = async () => undefined;
 
 export const ReleaseListPopulated: Story = {
-    render: () =>
-        storyFrame(
-            <MusicReleaseListDesktopView
-                artistSearch=""
-                onArtistSearchChange={() => undefined}
-                onRetry={() => undefined}
-                onSelectArtist={() => undefined}
-                state={{
-                    kind: 'ready',
-                    artists: musicArtists,
-                    selectedArtist: musicArtists[0],
-                    releases: {kind: 'populated', items: releaseSummaries},
-                }}
-            />,
-        ),
+    render: () => <ReleaseListArtworkStory />,
 };
 
 export const ReleaseListLoading: Story = {
@@ -95,17 +84,7 @@ export const ReleaseListError: Story = {
 };
 
 export const ReleaseDetailWithArtwork: Story = {
-    render: () =>
-        storyFrame(
-            <MusicReleaseDetailContent
-                detail={releaseDetail}
-                onRetry={() => undefined}
-                releaseId={101}
-                releaseRating={<ReleaseRatingStory />}
-                status="ready"
-                trackRating={track => <TrackRatingStory key={track.id} trackId={track.id} trackName={track.title} />}
-            />,
-        ),
+    render: () => <ReleaseDetailArtworkStory />,
 };
 
 export const ReleaseDetailWithoutArtwork: Story = {
@@ -235,3 +214,58 @@ const TrackRatingStory = ({
         votersControl={null}
     />
 );
+
+const ReleaseListArtworkStory = () => {
+    const {summaries} = useArtworkFixtures();
+    return storyFrame(
+        <MusicReleaseListDesktopView
+            artistSearch=""
+            onArtistSearchChange={() => undefined}
+            onRetry={() => undefined}
+            onSelectArtist={() => undefined}
+            state={{
+                kind: 'ready',
+                artists: musicArtists,
+                selectedArtist: musicArtists[0],
+                releases: {kind: 'populated', items: summaries},
+            }}
+        />,
+    );
+};
+
+const ReleaseDetailArtworkStory = () => {
+    const {detail} = useArtworkFixtures();
+    return storyFrame(
+        <MusicReleaseDetailContent
+            detail={detail}
+            onRetry={() => undefined}
+            releaseId={101}
+            releaseRating={<ReleaseRatingStory />}
+            status="ready"
+            trackRating={track => <TrackRatingStory key={track.id} trackId={track.id} trackName={track.title} />}
+        />,
+    );
+};
+
+const useArtworkFixtures = () => {
+    const colors = useCssColors();
+    const cover = colors
+        ? ({
+              id: 1,
+              source: 'custom',
+              uri: createMusicArtwork(colors),
+              width: 600,
+              height: 600,
+              preferred: true,
+          } as const)
+        : null;
+    const detail = {
+        ...releaseDetail,
+        release: {...releaseDetail.release, selectedCover: cover},
+        images: cover ? [cover] : [],
+    };
+    return {
+        detail,
+        summaries: releaseSummaries.map(release => (release.id === detail.release.id ? detail.release : release)),
+    };
+};

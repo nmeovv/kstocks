@@ -1,47 +1,47 @@
 .toggle {
     position: relative;
     display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--target-min);
+    height: var(--target-min);
     flex: none;
     padding: 0;
     place-items: center;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
+    border: var(--border-width) solid var(--ink);
+    border-radius: var(--radius-round);
     background: var(--card);
     box-shadow: var(--shadow-sm);
     color: var(--ink);
     cursor: pointer;
     transition:
-        box-shadow 100ms ease,
-        transform 100ms ease,
-        background-color 120ms ease;
+        box-shadow var(--motion-instant) var(--motion-ease),
+        transform var(--motion-instant) var(--motion-ease),
+        background-color var(--motion-fast) var(--motion-ease);
 }
 
 .toggle::before {
     position: absolute;
     width: 1.75rem;
     height: 1.75rem;
-    border: 2px solid currentcolor;
-    border-radius: 50%;
+    border: var(--border-width) solid currentcolor;
+    border-radius: var(--radius-round);
     content: '';
 }
 
 .toggle svg {
     position: relative;
-    z-index: 1;
-    width: 1rem;
-    height: 1rem;
+    z-index: var(--layer-raised);
+    width: var(--icon-sm);
+    height: var(--icon-sm);
     stroke-width: 2.5;
 }
 
 .toggle:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--ring) 58%, transparent);
-    outline-offset: 4px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }
 
 .toggle:active {
-    box-shadow: 1px 1px 0 var(--ink);
+    box-shadow: var(--shadow-pressed);
     transform: translate(2px, 2px);
 }
 

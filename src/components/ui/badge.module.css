@@ -5,37 +5,37 @@
     flex: none;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
+    gap: var(--space-1);
     overflow: hidden;
-    padding: 0.125rem 0.5rem;
-    border: 2px solid transparent;
-    border-radius: 999px;
+    padding: var(--space-half) var(--space-3);
+    border: var(--border-width) solid transparent;
+    border-radius: var(--radius-pill);
     font-family: var(--font-display-family);
-    font-size: 0.75rem;
+    font-size: var(--font-size-2);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     white-space: nowrap;
     transition:
-        background-color 120ms ease,
-        color 120ms ease,
-        transform 120ms ease,
-        box-shadow 120ms ease;
+        background-color var(--motion-fast) var(--motion-ease),
+        color var(--motion-fast) var(--motion-ease),
+        transform var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
 }
 
 .badge:focus-visible {
     border-color: var(--ring);
-    outline: 3px solid color-mix(in srgb, var(--ring) 50%, transparent);
-    outline-offset: 1px;
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
 }
 
 .badge[aria-invalid='true'] {
     border-color: var(--destructive);
-    outline-color: color-mix(in srgb, var(--destructive) 20%, transparent);
+    outline-color: var(--focus-color-destructive);
 }
 
 .badge > svg {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: var(--icon-badge);
+    height: var(--icon-badge);
     pointer-events: none;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .destructive {
-    background: color-mix(in srgb, var(--destructive) 10%, transparent);
-    color: var(--destructive);
+    background: var(--destructive-tint);
+    color: var(--on-destructive-tint);
 }
 
 .outline {
@@ -77,9 +77,14 @@
 .outline:is(a):hover,
 .ghost:hover {
     background: var(--muted);
-    color: var(--muted-foreground);
+    color: var(--on-rose);
 }
 
 .link:hover {
     text-decoration: underline;
+}
+
+.badge:is(a, button) {
+    min-width: var(--target-min);
+    min-height: var(--target-min);
 }
